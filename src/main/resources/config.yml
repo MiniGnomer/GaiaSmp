@@ -1,0 +1,23 @@
+# ElementType:
+#   PlayerUUID: ELEMENT
+#
+# Abilities:
+#   PlayerUUID:
+#     - 1
+#     - 0
+# Level:
+#   PlayerUUID: 1-4
+# Passive:
+#   PlayerUUID: ID
+# Passive:
+#   PlayerUUID: ID
+
+ElementType:
+
+Abilities:
+
+Level:
+
+Passive:
+
+Ultimate:
