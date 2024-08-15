@@ -6,6 +6,7 @@ public enum AbilityType {
 
     EMPTY (null, 0, null, null),
 
+//  Ability Name/ID,    Element,      Number ID, Ability DISPLAY Name, Rarity
     NETHER_RESILIENCE (ElementType.FIRE, 1, "Nether Resilience", RarityLevel.PERK), // Fire resistance
     OCEAN_AGILITY (ElementType.WATER, 2, "Ocean Agility", RarityLevel.PERK), // Faster swim speed
     NATURES_TOUCH (ElementType.EARTH, 3, "Nature's Touch", RarityLevel.PERK), // Haste
@@ -26,36 +27,30 @@ public enum AbilityType {
     FLOOR_DEFENCE (ElementType.EARTH, 15, "Floor Defence", RarityLevel.PERK), // Reduces damage based on how hard the block you're standing on is
     SWIFTY_SPRINT (ElementType.WIND, 16, "Swifty Sprint", RarityLevel.PERK), // Speed
 
-    // COMMON:
-    //
-    FIRE_TEMP_8 (ElementType.FIRE, 17, "Flame Imbuement", RarityLevel.COMMON), // Increases damage by 15% (soul fire particles)
+    FLAME_IMBUEMENT (ElementType.FIRE, 17, "Flame Imbuement", RarityLevel.COMMON), // Increases damage by 15% (soul fire particles)
     WATER_TEMP_9 (ElementType.WATER, 18, "Hydro Boost", RarityLevel.COMMON),
     POISON_IVY (ElementType.EARTH, 19, "Poison Ivy", RarityLevel.COMMON), // Creates a floor of particles that make you take damage and poison
     AIR_SWORD (ElementType.WIND, 20, "Air Sword", RarityLevel.COMMON), // Increases attack speed and movement speed slightly
 
-    // Sabotages another player
     RAPID_FLARE (ElementType.FIRE, 21, "Rapid Flare", RarityLevel.COMMON), // Shoots several consecutive mini-fireballs
     WATER_TEMP_10 (ElementType.WATER, 22, "Hydro Boost", RarityLevel.COMMON),
     DEFENCIVE_DIG (ElementType.EARTH, 23, "Defencive Dig", RarityLevel.COMMON), // The next player to hit you get stuck in the ground
     WIND_GUST (ElementType.WIND, 24, "Wind Gust", RarityLevel.COMMON), // Pushes away players in the direction you're looking
 
-    // Boosts you:
     FIRE_TEMP_2 (ElementType.FIRE, 25, "Flame Body", RarityLevel.COMMON),
     WATER_TEMP_11 (ElementType.WATER, 26, "Hydro Boost", RarityLevel.COMMON),
     HARD_AS_A_ROCK (ElementType.EARTH, 27, "Hard As Dwayne (The Rock)", RarityLevel.COMMON), // Reduces damage for 15 seconds
     DASH (ElementType.WIND, 28, "Dash", RarityLevel.COMMON), // Dashes you forwards a bit
 
-    // Weak damage
     FIRE_SLASHES (ElementType.FIRE, 29, "Fire Slashes", RarityLevel.COMMON), // Creates a slash which damages nearby players
     BUBBLE_BEAM (ElementType.WATER, 30, "Bubble Beam", RarityLevel.COMMON), // Shoots a few small bubbles that do damage
     EARTH_TEMP_13 (ElementType.EARTH, 31, "Geo Fist", RarityLevel.COMMON),
-    WIND_TEMP_19 (ElementType.WIND, 32, "Light Feet", RarityLevel.COMMON),
+    WIND_TUG (ElementType.WIND, 32, "Wind Tug", RarityLevel.COMMON), // Pulls a player towards you
 
-    // UNCOMMON:
     FIRE_TEMP_3 (ElementType.FIRE, 33, "Flame Body", RarityLevel.UNCOMMON),
     ANGELIC_CLEANSING (ElementType.WATER, 34, "Angelic Cleansing", RarityLevel.UNCOMMON), // Clears bad effects
     EARTH_TEMP_14 (ElementType.EARTH, 35, "Geo Fist", RarityLevel.UNCOMMON),
-    WIND_TEMP_20 (ElementType.WIND, 36, "Dash", RarityLevel.UNCOMMON),
+    WIND_TEMP_20 (ElementType.WIND, 36, "TEM", RarityLevel.UNCOMMON),
 
     FIRE_TEMP_4 (ElementType.FIRE, 37, "Flame Body", RarityLevel.UNCOMMON),
     DEFENCIVE_BUBBLE (ElementType.WATER, 38, "Defencive Bubble", RarityLevel.UNCOMMON), // Stops 5 attacks until the bubble pops
@@ -71,7 +66,7 @@ public enum AbilityType {
     FLAMETHROWER (ElementType.FIRE, 45, "Flamethrower", RarityLevel.RARE), // Shoots lots of fire
     BOILING_BULLET (ElementType.WATER, 46, "Boiling Bullet", RarityLevel.RARE), // Shoots an extremely hot water bullet which catches the mob on fire
     FOOT_NIBBLER (ElementType.EARTH, 47, "Foot Nibbler", RarityLevel.RARE), // Causes fangs to come out of the ground
-    WIND_TEMP_23 (ElementType.WIND, 48, "Light Feet", RarityLevel.RARE),
+    EXTREME_GRAVITY (ElementType.WIND, 48, "Extreme Gravity", RarityLevel.RARE), // Pushes players to the ground (so they walk slow and can't jump)
 
     BLAZING_METEOR (ElementType.FIRE, 49, "Blazing Meteor", RarityLevel.RARE), // Shoots a large meteor with strong gravity
     AQUA_PULSE (ElementType.WATER, 50, "Aqua Pulse", RarityLevel.RARE), // Shoots several pulses of water around the player that progressively get bigger
