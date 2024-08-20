@@ -6,7 +6,6 @@ public enum AbilityType {
 
     EMPTY (null, 0, null, null),
 
-//  Ability Name/ID,    Element,      Number ID, Ability DISPLAY Name, Rarity
     NETHER_RESILIENCE (ElementType.FIRE, 1, "Nether Resilience", RarityLevel.PERK), // Fire resistance
     OCEAN_AGILITY (ElementType.WATER, 2, "Ocean Agility", RarityLevel.PERK), // Faster swim speed
     NATURES_TOUCH (ElementType.EARTH, 3, "Nature's Touch", RarityLevel.PERK), // Haste
@@ -27,39 +26,41 @@ public enum AbilityType {
     FLOOR_DEFENCE (ElementType.EARTH, 15, "Floor Defence", RarityLevel.PERK), // Reduces damage based on how hard the block you're standing on is
     SWIFTY_SPRINT (ElementType.WIND, 16, "Swifty Sprint", RarityLevel.PERK), // Speed
 
+
     FLAME_IMBUEMENT (ElementType.FIRE, 17, "Flame Imbuement", RarityLevel.COMMON), // Increases damage by 15% (soul fire particles)
-    WATER_TEMP_9 (ElementType.WATER, 18, "Hydro Boost", RarityLevel.COMMON),
+    DOLPHIN_RUSH (ElementType.WATER, 18, "Dolphin's Rush", RarityLevel.COMMON), // Gives you dolphins grace effect for 5 seconds
     POISON_IVY (ElementType.EARTH, 19, "Poison Ivy", RarityLevel.COMMON), // Creates a floor of particles that make you take damage and poison
     AIR_SWORD (ElementType.WIND, 20, "Air Sword", RarityLevel.COMMON), // Increases attack speed and movement speed slightly
 
     RAPID_FLARE (ElementType.FIRE, 21, "Rapid Flare", RarityLevel.COMMON), // Shoots several consecutive mini-fireballs
-    WATER_TEMP_10 (ElementType.WATER, 22, "Hydro Boost", RarityLevel.COMMON),
+    WATER_JET (ElementType.WATER, 22, "Water Jet", RarityLevel.COMMON), // Shoots a stream of water wherever you're looking
     DEFENCIVE_DIG (ElementType.EARTH, 23, "Defencive Dig", RarityLevel.COMMON), // The next player to hit you get stuck in the ground
     WIND_GUST (ElementType.WIND, 24, "Wind Gust", RarityLevel.COMMON), // Pushes away players in the direction you're looking
 
-    FIRE_TEMP_2 (ElementType.FIRE, 25, "Flame Body", RarityLevel.COMMON),
-    WATER_TEMP_11 (ElementType.WATER, 26, "Hydro Boost", RarityLevel.COMMON),
+    RING_OF_FIRE (ElementType.FIRE, 25, "Ring Of Fire", RarityLevel.COMMON), // Creates a damaging ring of fire
+    DEFENCIVE_BUBBLE (ElementType.WATER, 26, "Defensive Bubble", RarityLevel.COMMON), // Stops 3 attacks until the bubble pops
     HARD_AS_A_ROCK (ElementType.EARTH, 27, "Hard As Dwayne (The Rock)", RarityLevel.COMMON), // Reduces damage for 15 seconds
     DASH (ElementType.WIND, 28, "Dash", RarityLevel.COMMON), // Dashes you forwards a bit
 
     FIRE_SLASHES (ElementType.FIRE, 29, "Fire Slashes", RarityLevel.COMMON), // Creates a slash which damages nearby players
     BUBBLE_BEAM (ElementType.WATER, 30, "Bubble Beam", RarityLevel.COMMON), // Shoots a few small bubbles that do damage
-    EARTH_TEMP_13 (ElementType.EARTH, 31, "Geo Fist", RarityLevel.COMMON),
+    BATTLE_RAM (ElementType.EARTH, 31, "Battle Ram", RarityLevel.COMMON), // If hit a player, they stunned + damaged. If you miss, you stunned
     WIND_TUG (ElementType.WIND, 32, "Wind Tug", RarityLevel.COMMON), // Pulls a player towards you
 
-    FIRE_TEMP_3 (ElementType.FIRE, 33, "Flame Body", RarityLevel.UNCOMMON),
-    ANGELIC_CLEANSING (ElementType.WATER, 34, "Angelic Cleansing", RarityLevel.UNCOMMON), // Clears bad effects
-    EARTH_TEMP_14 (ElementType.EARTH, 35, "Geo Fist", RarityLevel.UNCOMMON),
-    WIND_TEMP_20 (ElementType.WIND, 36, "TEM", RarityLevel.UNCOMMON),
 
-    FIRE_TEMP_4 (ElementType.FIRE, 37, "Flame Body", RarityLevel.UNCOMMON),
-    DEFENCIVE_BUBBLE (ElementType.WATER, 38, "Defencive Bubble", RarityLevel.UNCOMMON), // Stops 5 attacks until the bubble pops
+    FIREBALL (ElementType.FIRE, 33, "Fireball (we had to)", RarityLevel.UNCOMMON), // Shoots a fireball
+    ANGELIC_CLEANSING (ElementType.WATER, 34, "Angelic Cleansing", RarityLevel.UNCOMMON), // Clears bad effects
+    IRON_PROTECTOR (ElementType.EARTH, 35, "Iron Protector", RarityLevel.UNCOMMON), // Spawns an iron golem bodyguard
+    GUST_OF_CHANCE (ElementType.WIND, 36, "Gust Of Chance", RarityLevel.UNCOMMON), // Pushes the player in a random direction
+
+    DEMON_GUARDS (ElementType.FIRE, 37, "Demon Guards", RarityLevel.UNCOMMON), // Spawns nether mobs that attack everyone except the user
+    WAVE (ElementType.WATER, 38, "Wave", RarityLevel.UNCOMMON), // Creates a wave in the direction you're looking
     PEACE_N_HARMONY (ElementType.EARTH, 39, "Peace N' Harmony", RarityLevel.UNCOMMON), // Marked player loses hearts as they deal damage to you
-    WIND_TEMP_21 (ElementType.WIND, 40, "Light Feet", RarityLevel.UNCOMMON),
+    WIND_VORTEX (ElementType.WIND, 40, "Wind Vortex", RarityLevel.UNCOMMON), // Creates a circle that pulls all nearby players to the centre
 
     SCARLET_BLAZE (ElementType.FIRE, 41, "Scarlet Blaze", RarityLevel.UNCOMMON), // Boosted up in air, slow falling for 5 seconds (aim time), pushes you where you're looking and kaboom
-    WATER_TEMP_12 (ElementType.WATER, 42, "", RarityLevel.UNCOMMON),
-    EARTH_TEMP_16 (ElementType.EARTH, 43, "Geo Fist", RarityLevel.UNCOMMON),
+    HIT_OR_MIST (ElementType.WATER, 42, "Hit Or Mist (I Guess They Never Miss Huh?)", RarityLevel.UNCOMMON), // Mist particles in an area, makes you full invis and regen
+    BLOCK_TURRET (ElementType.EARTH, 43, "Block Turret", RarityLevel.UNCOMMON), // Shoots several blocks
     WIND_SHURIKEN (ElementType.WIND, 44, "Wind Shuriken", RarityLevel.UNCOMMON), // Throws a shuiken made up of air/wind particles
 
 
@@ -76,8 +77,8 @@ public enum AbilityType {
 
     GATES_OF_HELL (ElementType.FIRE, 53, "Gates of Hell", RarityLevel.MYTHIC), // Creates a circle around the player, enemies take damage when they enter
     AQUA_SPHERE (ElementType.WATER, 54, "Aqua Sphere", RarityLevel.MYTHIC), // Creates a large sphere of water that slows down all entities that enter it
-    EARTH_TEMP_17 (ElementType.EARTH, 55, "Geo Fist 2", RarityLevel.MYTHIC),
-    WIND_TEMP_25 (ElementType.WIND, 56, "Light Feet 2", RarityLevel.MYTHIC);
+    ROCK_STORM (ElementType.EARTH, 55, "Rock Storm", RarityLevel.MYTHIC), // Makes blocks fly in the air then come back down as meteors (doesn't destroy blocks)
+    WIND_MYTHIC_TEMP (ElementType.WIND, 56, "Wind Mythic", RarityLevel.MYTHIC);
 
     public final ElementType element;
     public final int abilityId;
