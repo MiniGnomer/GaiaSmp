@@ -3,11 +3,9 @@ package me.minignomer.gaiasmp.listeners;
 import me.minignomer.gaiasmp.items.GaiaStone;
 import org.bukkit.block.Sign;
 import org.bukkit.entity.EntityType;
-import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
-import org.bukkit.event.entity.PlayerDeathEvent;
 import org.bukkit.event.entity.SheepDyeWoolEvent;
 import org.bukkit.event.inventory.ClickType;
 import org.bukkit.event.inventory.InventoryClickEvent;
@@ -16,19 +14,18 @@ import org.bukkit.event.player.PlayerInteractEntityEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.event.player.PlayerRespawnEvent;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.scheduler.BukkitRunnable;
 
 public class PreventItemMove extends GaiaStone implements Listener {
 
-
-    @EventHandler
-    public void onPlayerDeath(PlayerDeathEvent e) {
-        e.getDrops().removeIf(this::isGaiaStone);
-    }
-
     @EventHandler
     public void onPlayerRespawn(PlayerRespawnEvent e) {
-        Player p = e.getPlayer();
-        createGaiaStone(p);
+        new BukkitRunnable() {
+            @Override
+            public void run() {
+                createGaiaStone(e.getPlayer());
+            }
+        }.runTaskLater(getPlugin(), 1L);
     }
 
     @EventHandler
