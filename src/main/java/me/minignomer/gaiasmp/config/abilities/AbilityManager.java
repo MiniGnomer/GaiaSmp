@@ -33,7 +33,7 @@ public abstract class AbilityManager extends LevelManager {
         setConfig("Abilities." + p.getUniqueId(), abilities);
     }
 
-    public AbilityType getPassive(OfflinePlayer p) {
+    public static AbilityType getPassive(OfflinePlayer p) {
         return getAbility(getConfig().getInt("Passive." + p.getUniqueId()));
     }
 
@@ -41,7 +41,7 @@ public abstract class AbilityManager extends LevelManager {
         setConfig("Passive." + p.getUniqueId(), abilityType.abilityId);
     }
 
-    public AbilityType getUltimate(OfflinePlayer p) {
+    public static AbilityType getUltimate(OfflinePlayer p) {
         return getAbility(getConfig().getInt("Ultimate." + p.getUniqueId()));
     }
 
@@ -72,7 +72,7 @@ public abstract class AbilityManager extends LevelManager {
         }
     }
 
-    public AbilityType getAbility(int abilityId) {
+    public static AbilityType getAbility(int abilityId) {
         return AbilityType.values()[abilityId];
     }
 

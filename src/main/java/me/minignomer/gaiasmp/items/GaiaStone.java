@@ -39,36 +39,36 @@ public class GaiaStone extends AbilityManager {
     private static List<String> createAbilityLore(OfflinePlayer p) {
         List<String> lore = new ArrayList<>();
 
-        lore.add(" ");
-        lore.add("§6§nAbilities:");
-
-        for (AbilityType ability : getAbilities(p)) {
-            if (ability == AbilityType.EMPTY)
-                continue;
-
+        if (getPassive(p) != AbilityType.EMPTY) {
             lore.add(" ");
-
-            switch (ability.element) {
-                case FIRE:
-                    lore.add("§4§l" + ability.name);
-                    lore.add("§7 - Element: §c§l" + ability.element.name);
-                    break;
-                case WATER:
-                    lore.add("§1§l" + ability.name);
-                    lore.add("§7 - Element: §9§l" + ability.element.name);
-                    break;
-                case EARTH:
-                    lore.add("§2§l" + ability.name);
-                    lore.add("§7 - Element: §a§l" + ability.element.name);
-                    break;
-                case WIND:
-                    lore.add("§7§l" + ability.name);
-                    lore.add("§7 - Element: §f§l" + ability.element.name);
-                    break;
-            }
-            lore.add("§7 - Rarity: §r" + ability.rarity.name);
-
+            AbilityType ability = getPassive(p);
+            lore.add("§5§n§lPerk:");
+            lore.add(" ");
+            lore.add(ability.element.symbol + " " + ability.name);
         }
+
+        if (!getTrimmedAbilities(p).isEmpty()) {
+            lore.add(" ");
+            lore.add("§e§n§lAbilities:");
+
+            for (AbilityType ability : getAbilities(p)) {
+                if (ability == AbilityType.EMPTY)
+                    continue;
+                lore.add(" ");
+                lore.add(ability.element.symbol + " " + ability.name);
+                lore.add("§7 - Rarity: §r" + ability.rarity.name);
+            }
+        }
+
+        if (getUltimate(p) != AbilityType.EMPTY) {
+            lore.add(" ");
+            AbilityType ability = getUltimate(p);
+            lore.add("§6§n§lUltimate:");
+            lore.add(" ");
+            lore.add(ability.element.symbol + " " + ability.name);
+        }
+
+
 
         return lore;
     }
