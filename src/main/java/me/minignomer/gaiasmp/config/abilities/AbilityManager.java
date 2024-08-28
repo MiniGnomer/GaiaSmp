@@ -8,34 +8,17 @@ import org.bukkit.entity.Player;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.concurrent.ThreadLocalRandom;
 
 public abstract class AbilityManager extends LevelManager {
 
     public static HashMap<Player, Integer> currentAbility = new HashMap<>();
 
-    public void setDefaultAbilities(OfflinePlayer p) {
-
-        switch (getElement(p)) {
-            case FIRE:
-                // Add basic passive ability
-                setPassive(p, AbilityType.NETHER_RESILIENCE);
-                break;
-
-            case WATER:
-                // Add basic passive ability
-                setPassive(p, AbilityType.OCEAN_AGILITY);
-                break;
-
-            case EARTH:
-                // Add basic passive ability
-                setPassive(p, AbilityType.NATURES_TOUCH);
-                break;
-
-            case WIND:
-                // Add basic passive ability
-                setPassive(p, AbilityType.WIND_RESISTANCE);
-                break;
-        }
+    public void setDefaults(OfflinePlayer p) {
+        int rand = ThreadLocalRandom.current().nextInt(1, AbilityType.SWIFTY_SPRINT.abilityId + 1);
+        AbilityType passive = getAbility(rand);
+        setPassive(p, passive);
+        setElement(p, passive.element);
 
         List<Integer> abilities = new ArrayList<>();
 
@@ -43,6 +26,8 @@ public abstract class AbilityManager extends LevelManager {
         for (int i = 1; i <= 4; i++) {
             abilities.add(AbilityType.EMPTY.abilityId);
         }
+
+        setUltimate(p, AbilityType.EMPTY);
 
         // Adds them to the config
         setConfig("Abilities." + p.getUniqueId(), abilities);
@@ -112,6 +97,16 @@ public abstract class AbilityManager extends LevelManager {
 
     public AbilityType getAbility(int abilityId) {
         return AbilityType.values()[abilityId];
+    }
+
+    public static List<AbilityType> getTrimmedAbilities(OfflinePlayer p) {
+        List<AbilityType> abilityList = new ArrayList<>();
+        for (int id : getAbilitiesId(p)) {
+            if (id == 0)
+                continue;
+            abilityList.add(AbilityType.values()[id]);
+        }
+        return abilityList;
     }
 
     public static List<AbilityType> getAbilities(OfflinePlayer p) {

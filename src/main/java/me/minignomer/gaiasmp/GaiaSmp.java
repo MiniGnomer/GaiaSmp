@@ -8,6 +8,7 @@ import me.minignomer.gaiasmp.commands.level.LevelTabCompleter;
 import me.minignomer.gaiasmp.commands.scroll.ScrollCommand;
 import me.minignomer.gaiasmp.commands.scroll.ScrollTabCompleter;
 import me.minignomer.gaiasmp.listeners.ActivateAbility;
+import me.minignomer.gaiasmp.listeners.PlayerDeathListener;
 import me.minignomer.gaiasmp.listeners.PlayerJoinListener;
 import me.minignomer.gaiasmp.listeners.PreventItemMove;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -18,13 +19,14 @@ public final class GaiaSmp extends JavaPlugin {
 
     public static SpiGUI spiGUI;
 
-    private void listeners() {
+    private void registerListeners() {
         getServer().getPluginManager().registerEvents(new PlayerJoinListener(), this);
         getServer().getPluginManager().registerEvents(new ActivateAbility(), this);
         getServer().getPluginManager().registerEvents(new PreventItemMove(), this);
+        getServer().getPluginManager().registerEvents(new PlayerDeathListener(), this);
     }
 
-    private void commands() {
+    private void registerCommands() {
         getCommand("scroll").setExecutor(new ScrollCommand());
         getCommand("scroll").setTabCompleter(new ScrollTabCompleter());
 
@@ -39,7 +41,7 @@ public final class GaiaSmp extends JavaPlugin {
         plugin = this;
         spiGUI = new SpiGUI(this);
         GuiItems.registerGuiItems();
-        listeners();
-        commands();
+        registerListeners();
+        registerCommands();
     }
 }

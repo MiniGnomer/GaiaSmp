@@ -12,21 +12,9 @@ import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.inventory.InventoryDragEvent;
 import org.bukkit.event.player.PlayerInteractEntityEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
-import org.bukkit.event.player.PlayerRespawnEvent;
 import org.bukkit.inventory.ItemStack;
-import org.bukkit.scheduler.BukkitRunnable;
 
 public class PreventItemMove extends GaiaStone implements Listener {
-
-    @EventHandler
-    public void onPlayerRespawn(PlayerRespawnEvent e) {
-        new BukkitRunnable() {
-            @Override
-            public void run() {
-                createGaiaStone(e.getPlayer());
-            }
-        }.runTaskLater(getPlugin(), 1L);
-    }
 
     @EventHandler
     public void onInventoryClick(InventoryClickEvent e) {

@@ -24,8 +24,8 @@ public class PlayerJoinListener extends GaiaStone implements Listener {
         // Set level to 1
         setLevel(p, 1);
 
-        // Add empty ability slots
-        setDefaultAbilities(p);
+        // Add empty ability slots, passive ability and element
+        setDefaults(p);
 
         giveStone(p);
 
