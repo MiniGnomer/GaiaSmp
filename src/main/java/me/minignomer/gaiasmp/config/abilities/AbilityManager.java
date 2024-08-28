@@ -63,29 +63,6 @@ public abstract class AbilityManager extends LevelManager {
         setConfig("Abilities." + p.getUniqueId(), abilities);
     }
 
-    public int getAbilityAmount(OfflinePlayer p) {
-        int amount = 0;
-        for (AbilityType abilityType : getAbilities(p)) {
-            if (abilityType == AbilityType.EMPTY) {
-                continue;
-            }
-            amount++;
-        }
-        return amount;
-    }
-
-    public int firstAbility(OfflinePlayer p) {
-        int slot = -1;
-        for (AbilityType abilityType : getAbilities(p)) {
-            slot++;
-            if (abilityType == AbilityType.EMPTY) {
-                continue;
-            }
-            break;
-        }
-        return slot;
-    }
-
     public AbilityType getAbility(OfflinePlayer p, int abilitySlot) {
         List<AbilityType> abilities = getAbilities(p);
         try {
