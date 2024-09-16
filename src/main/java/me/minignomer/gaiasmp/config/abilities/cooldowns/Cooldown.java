@@ -12,6 +12,8 @@ public abstract class Cooldown {
 
     private static HashMap<AbstractMap.SimpleEntry<UUID, AbilityType>, Long> currentCooldowns = new HashMap<>();
 
+    private static List<AbstractMap.SimpleEntry<UUID, AbilityType>> activeAbilities = new ArrayList<>();
+
     public long getEndTime(OfflinePlayer p, AbilityType abilityType) {
         return currentCooldowns.get(new AbstractMap.SimpleEntry<>(p.getUniqueId(), abilityType));
     }
@@ -38,6 +40,30 @@ public abstract class Cooldown {
     public void setCooldown(Player p, AbilityType ability, long cooldownTime) {
         addCooldownEndTime(p.getUniqueId(), ability, cooldownTime);
         startRunnable(p, ability, cooldownTime);
+    }
+
+    public void setCooldown(Player p, AbilityType ability, long startTime, long cooldownTime) {
+        addCooldownEndTime(p.getUniqueId(), ability, startTime + cooldownTime);
+        setActive(p, ability, true);
+        new BukkitRunnable() {
+            @Override
+            public void run() {
+                setActive(p, ability, false);
+                startRunnable(p, ability, cooldownTime);
+            }
+        }.runTaskLater(GaiaSmp.plugin, 20 * startTime);
+    }
+
+    public boolean isActive(Player p, AbilityType ability) {
+        return activeAbilities.contains(new AbstractMap.SimpleEntry<>(p.getUniqueId(), ability));
+    }
+
+    private void setActive(Player p, AbilityType ability, boolean active) {
+        if (active) {
+            activeAbilities.add(new AbstractMap.SimpleEntry<>(p.getUniqueId(), ability));
+            return;
+        }
+        activeAbilities.remove(new AbstractMap.SimpleEntry<>(p.getUniqueId(), ability));
     }
 
     public long getSecondsLeft(OfflinePlayer p, AbilityType abilityType) {

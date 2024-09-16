@@ -7,6 +7,7 @@ import me.minignomer.gaiasmp.commands.level.LevelCommand;
 import me.minignomer.gaiasmp.commands.level.LevelTabCompleter;
 import me.minignomer.gaiasmp.commands.scroll.ScrollCommand;
 import me.minignomer.gaiasmp.commands.scroll.ScrollTabCompleter;
+import me.minignomer.gaiasmp.config.abilities.types.listeners.FlameImbuementListener;
 import me.minignomer.gaiasmp.listeners.ActivateAbility;
 import me.minignomer.gaiasmp.listeners.PlayerDeathListener;
 import me.minignomer.gaiasmp.listeners.PlayerJoinListener;
@@ -24,6 +25,9 @@ public final class GaiaSmp extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new ActivateAbility(), this);
         getServer().getPluginManager().registerEvents(new PreventItemMove(), this);
         getServer().getPluginManager().registerEvents(new PlayerDeathListener(), this);
+
+        // Abilities
+        getServer().getPluginManager().registerEvents(new FlameImbuementListener(), this);
     }
 
     private void registerCommands() {

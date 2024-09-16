@@ -71,11 +71,17 @@
           <version>1.21-R0.1-SNAPSHOT</version>
           <scope>provided</scope>
       </dependency>
-
       <dependency>
           <groupId>com.samjakob</groupId>
           <artifactId>SpiGUI</artifactId>
           <version>v1.3.1</version>
+      </dependency>
+      <dependency>
+          <groupId>me.minignomer</groupId>
+          <artifactId>MiniParticleAPI</artifactId>
+          <version>1.0</version>
+          <scope>system</scope>
+          <systemPath>D:/Programming Projects/My Plugins/MiniParticleAPI/target/MiniParticleAPI-1.0.jar</systemPath>
       </dependency>
   </dependencies>
 </project>

@@ -3,7 +3,7 @@ package me.minignomer.gaiasmp.listeners;
 import me.minignomer.gaiasmp.config.abilities.AbilityManager;
 import me.minignomer.gaiasmp.config.abilities.cooldowns.Cooldown;
 import me.minignomer.gaiasmp.config.abilities.enums.AbilityType;
-import me.minignomer.gaiasmp.config.abilities.types.FlameBody;
+import me.minignomer.gaiasmp.config.abilities.types.FlameImbuement;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -21,8 +21,8 @@ public class ActivateAbility extends AbilityManager implements Listener {
             case EMPTY:
                 p.sendMessage("§c§lYou have no abilities to use!");
                 return;
-            case FLAME_BODY:
-                new FlameBody(p);
+            case FLAME_IMBUEMENT:
+                new FlameImbuement(p);
                 break;
         }
         p.sendMessage("§aYou used your §r§2§l" + abilityType.name + "§r§a ability!");

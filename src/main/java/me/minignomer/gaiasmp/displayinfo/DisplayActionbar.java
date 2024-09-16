@@ -52,6 +52,12 @@ public class DisplayActionbar extends AbilityManager {
                     actionbarMsg = actionbarMsg + " §0§l| " + ability.element.symbol + " " + ability.name + " §0§l| §d§l" + "Usable!";
                 }
 
+                if (isActive(p, ability)) {
+                    p.spigot().sendMessage(ChatMessageType.ACTION_BAR, new TextComponent(
+                            element.symbol + " " + element.name + " Stone §0§l| " + ability.element.symbol + " " + ability.name + " §0§l| §a§l" + "Active!"
+                    ));
+                    return;
+                }
 
                 if (!hasCooldown(p, ability)) {
                     p.spigot().sendMessage(ChatMessageType.ACTION_BAR, new TextComponent(actionbarMsg));
